@@ -19,6 +19,7 @@ public class RetrofitUtils {
 
     static HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
     static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+    static LoggingInterceptor logging2=new LoggingInterceptor();
 
     static {
         try {
@@ -37,7 +38,7 @@ public class RetrofitUtils {
 
     public static Retrofit getRetrofit() {
         logging.setLevel(BODY);
-        httpClient.addInterceptor(logging);
+        httpClient.addInterceptor(logging2);
         return new Retrofit.Builder()
                 .baseUrl(getBaseUrl())
                 .addConverterFactory(JacksonConverterFactory.create()) //указывает через какую библиотеку реализуется сериализацияб,десериализация
